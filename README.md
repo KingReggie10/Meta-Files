@@ -1,6 +1,6 @@
-# Hello World
+#Create_Token Contract
 
-This Solidity program is a simple "Hello World" program that demonstrates the basic syntax and functionality of the Solidity programming language. The purpose of this program is to serve as a starting point for those who are new to Solidity and want to get a feel for how it works.
+This Solidity smart contract implements a simple ERC20-like token called `Create_Token`. It provides basic functionalities for minting and burning tokens.
 
 ## Description
 
@@ -12,14 +12,40 @@ This program is a simple contract written in Solidity, a programming language us
 
 To run this program, you can use Remix, an online Solidity IDE. To get started, go to the Remix website at https://remix.ethereum.org/.
 
-Once you are on the Remix website, create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a .sol extension (e.g., HelloWorld.sol). Copy and paste the following code into the file:
+Once you are on the Remix website, create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a .sol extension (e.g., Create_Token.sol). Copy and paste the following code into the file:
 
 ```javascript
-pragma solidity ^0.8.4;
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.18;
 
-contract HelloWorld {
-    function sayHello() public pure returns (string memory) {
-        return "Hello World!";
+contract Create_Token {
+
+    // Public variables for token details
+    string public tokenName = "KING";
+    string public tokenAbbrv = "KNG";
+    uint public totalSupply = 0;
+
+    // Mapping to store balances
+    mapping(address => uint) public balances;
+
+    // Mint function to create new tokens
+    function mint(address _address, uint _value) public {
+        
+        totalSupply += _value;
+
+        // Increase balance of recipient
+        balances[_address] += _value;
+    }
+
+    // Burn function to destroy tokens
+    function burn(address _address, uint _value) public {
+        
+        if (balances[_address] >= _value){
+             // Decrease total supply
+        totalSupply -= _value;
+       
+        balances[_address] -= _value;
+        }
     }
 }
 
@@ -27,14 +53,11 @@ contract HelloWorld {
 
 To compile the code, click on the "Solidity Compiler" tab in the left-hand sidebar. Make sure the "Compiler" option is set to "0.8.4" (or another compatible version), and then click on the "Compile HelloWorld.sol" button.
 
-Once the code is compiled, you can deploy the contract by clicking on the "Deploy & Run Transactions" tab in the left-hand sidebar. Select the "HelloWorld" contract from the dropdown menu, and then click on the "Deploy" button.
-
-Once the contract is deployed, you can interact with it by calling the sayHello function. Click on the "HelloWorld" contract in the left-hand sidebar, and then click on the "sayHello" function. Finally, click on the "transact" button to execute the function and retrieve the "Hello World!" message.
-
+Once the code is compiled, you can deploy the contract by clicking on the "Deploy & Run Transactions" tab in the left-hand sidebar. Select the "Create_token" contract from the dropdown menu, and then click on the "Deploy" button.
 ## Authors
 
-Metacrafter Chris  
-[@metacraftersio](https://twitter.com/metacraftersio)
+Reggie Dimagiba Jr.
+@ReggieDimagiba16@gmail.com
 
 
 ## License
