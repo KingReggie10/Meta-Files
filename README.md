@@ -1,4 +1,4 @@
-##Create_Token Contract
+# Create_Token Contract
 
 This Solidity smart contract implements a simple ERC20-like token called `Create_Token`. It provides basic functionalities for minting and burning tokens.
 
