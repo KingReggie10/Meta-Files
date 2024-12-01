@@ -5,6 +5,7 @@ This Solidity smart contract implements a simple ERC20-like token called `Create
 ## Description
 
 **Minting:** Creates new tokens and assigns them to a specified address.
+
 **Burning:** Destroys existing tokens from a specified address.
 
 ## Getting Started
